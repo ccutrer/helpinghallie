@@ -114,3 +114,15 @@ div#Donate
     width: 100%;
     text-align: center;
 }
+
+ul#Events>li
+{
+    font-size: 18px;
+    line-height: 20px;
+}
+
+ul#Events>li *
+{
+    font-size: 14px;
+    line-height: 16px;
+}
