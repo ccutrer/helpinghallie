@@ -109,9 +109,24 @@ p
     margin-top: 12px;
 }
 
-div#Donate
+h3
+{
+    margin-top: 12px;
+}
+
+table#Donations
 {
     width: 100%;
+}
+
+table#Donations tr#Header
+{
+    text-align: center;
+    background-color: inherit;
+}
+
+td#PayPal
+{
     text-align: center;
 }
 
