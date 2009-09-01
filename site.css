@@ -14,44 +14,48 @@ body
     color: #534740;
 }
 
-body>div
+body>div#MainColumn
 {
-    position: relative;
-    width: 700px;
-    padding: 50px;
+    position:relative;
+    width: 800px;
     margin: 0 auto;
 }
 
-#Header
+body>div#MainColumn>div
+{
+    padding: 50px;
+}
+
+div#Header
 {
     background-color: White;
     padding-top: 40px;
     padding-bottom: 0px;
 }
 
-#Header 
+div#Header 
 {
-    height: 40px;
+    height: 20px;
 }
 
-#Header ul
+div#Header ul
 {
    float :right;
 }
 
-#Header ul li
+div#Header ul li
 {
    display :inline;
 }
 
-#Header ul li a
+div#Header ul li a
 {
     float: left;
     display: block;
     text-align: center;
 }
 
-#Header a
+div#Header a
 {
     font-size: 20px;
     text-decoration: none;
@@ -81,9 +85,10 @@ a#Logo
     color: #988674;
 }
 
-#Body
+div#Body
 {
     background-color: #f9c6de;
+    background-image: url(images/flowerbackground.png);
 }
 
 img
