@@ -91,7 +91,7 @@ div#Body
     background-image: url(images/flowerbackground.png);
 }
 
-img
+div#Body img
 {
     padding-top: 20px;
     padding-bottom: 20px;
