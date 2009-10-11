@@ -55,6 +55,14 @@ div#Header ul li a
     text-align: center;
 }
 
+div#Header ul li a span.update
+{
+    color:black;
+    font-size:10px;
+    vertical-align:super;
+    line-height:0px;
+}
+
 div#Header a
 {
     font-size: 20px;
