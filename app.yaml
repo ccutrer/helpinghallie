@@ -11,6 +11,9 @@ handlers:
 - url: /images
   static_dir: images
 
+- url: /downloads
+  static_dir: downloads
+
 - url: /site.css
   static_files: site.css
   upload: site.css
