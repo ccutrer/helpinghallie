@@ -21,3 +21,7 @@ handlers:
 - url: /(.*)
   static_files: \1
   upload: .*\.htm
+
+- url: /rss.xml
+  static_files: rss.xml
+  upload: rss.xml
