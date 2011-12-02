@@ -1,0 +1,2 @@
+class Update < Event
+end

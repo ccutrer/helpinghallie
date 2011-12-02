@@ -1,0 +1,2 @@
+class News < Event
+end

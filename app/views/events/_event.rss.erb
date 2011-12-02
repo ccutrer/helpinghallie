@@ -1,0 +1,14 @@
+<item>
+    <title><%= event.subject.blank? ? 'Hallie Update' : event.subject %></title>
+    <author><%= event.author %></author>
+
+    <link>http://www.helpinghallie.com/updates.htm</link>
+
+    <guid><%= event.created_at.to_i %></guid>
+    <pubDate><%= event.created_at.strftime('%a, %d %b %Y %H:%M:%S %z') %></pubDate>
+    <description>
+<![CDATA[
+<%= RDiscount.new(event.body).to_html.html_safe %>
+]]>
+    </description>
+</item>

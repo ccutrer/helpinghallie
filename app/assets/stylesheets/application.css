@@ -1,4 +1,12 @@
-﻿body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
 ul {list-style:none;}
 ul, ol {list-style-position: outside;}
 
@@ -8,7 +16,7 @@ body
     font-size: 14px;
     line-height: 16px;
     background-color: #4d2a1c;
-    background-image: url(images/background.png);
+    background-image: url(/assets/background.png);
     margin: 0px;
     padding: 0px;
     color: #534740;
@@ -96,7 +104,7 @@ a#Logo
 div#Body
 {
     background-color: #f9c6de;
-    background-image: url(images/flowerbackground.png);
+    background-image: url(/assets/flowerbackground.png);
 }
 
 div#Body img
