@@ -9,5 +9,7 @@ HelpingHallie::Application.routes.draw do
   match 'tshirts(.:format)' => 'application#tshirts'
   match 'rss.xml' => 'events#index', :format => 'rss', :type => 'Update'
 
+  match '/auth/:provider/callback', :to => 'sessions#create'
+
   root :to => 'application#index'
 end

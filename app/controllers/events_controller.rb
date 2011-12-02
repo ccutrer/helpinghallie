@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :require_user, :except => :index
 
   def new
     @event = Event.new
