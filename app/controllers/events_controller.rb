@@ -1,22 +1,48 @@
 class EventsController < ApplicationController
-  before_filter :require_user, :except => :index
+  before_filter :require_user, :except => [:index, :show]
+
+  def index
+    user
+    @events = klass.all(:conditions => { :type => params[:type] }, :order => 'created_at DESC', :limit => 10)
+  end
+
+  def show
+    user
+    @event = klass.find(params[:id])
+  end
 
   def new
-    @event = Event.new
+    @event = klass.new
+    render :action => 'show'
   end
 
   def create
-    type = params[:event].delete(:type)
-    @event = Event.new(params[:event])
-    @event.type = type
+    @event = klass.new(params[ActiveModel::Naming.param_key(klass)])
     if params[:commit] == 'Preview'
-      return render :action => 'new'
+      return render :action => 'show'
     end
     @event.save!
-    redirect_to root_path
+    redirect_to polymorphic_path(@event)
   end
 
-  def index
-    @events = Event.all(:conditions => { :type => params[:type]}, :order => 'created_at DESC', :limit => 10)
+  def update
+    @event = klass.find(params[:id])
+    @event.attributes = params[ActiveModel::Naming.param_key(klass)]
+    if params[:commit] == 'Preview'
+      return render :action => 'show'
+    end
+    @event.save!
+    redirect_to polymorphic_path(@event)
+  end
+
+  def destroy
+    @event = klass.find(params[:id])
+    @event.destroy
+    redirect_to polymorphic_path(@event.class)
+  end
+
+protected
+  def klass
+    @klass ||= params[:type].classify.constantize
   end
 end

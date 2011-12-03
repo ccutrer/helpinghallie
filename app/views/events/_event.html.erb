@@ -1,16 +1,23 @@
-<% if event.new_record? %>
+<% if @user && @event == event %>
   <%= form_for event do |f| %>
-    <%= f.label :type %> <%= f.select :type, ['Update', 'Event', 'News'] %><br />
     <%= f.label :subject %> <%= f.text_field :subject %><br />
     <%= f.label :author %> <%= f.text_field :author %><br />
     <%= f.text_area :body %><br />
-    <%= f.submit 'Preview' %><%=  f.submit 'Create' %>
+    <%= f.submit 'Preview' %><%=  f.submit event.new_record? ? 'Create' : 'Update' %>
   <% end %>
 <% end %>
 
-<li><%= event.subject %>
-<% if event.type == 'Update' %>
-  <ul><li><%= (event.created_at || Time.now.utc).strftime('%B %e, %Y').sub('  ', ' ') %></li></ul>
-<% end %>
-<%= RDiscount.new(event.body || '').to_html.html_safe %>
+<li>
+  <% if @user && !@event %>
+    <%=  link_to event.subject, event %>
+  <% else %>
+    <%= event.subject %>
+  <% end %>
+  <% if event.type == 'Update' %>
+    <ul><li><%= (event.created_at || Time.now.utc).strftime('%B %e, %Y').sub('  ', ' ') %></li></ul>
+  <% end %>
+  <%= RDiscount.new(event.body || '').to_html.html_safe %>
+  <% if @user && !event.new_record? && @event == event %>
+    <%= link_to 'Delete', event, :method => :delete %>
+  <% end %>
 </li>
