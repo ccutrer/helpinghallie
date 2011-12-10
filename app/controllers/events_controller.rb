@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     user
-    @events = klass.all(:conditions => { :type => params[:type] }, :order => 'created_at DESC', :limit => 10)
+    @events = klass.all(:conditions => { :type => params[:type] }, :order => 'created_at DESC, id DESC', :limit => 10)
   end
 
   def show
