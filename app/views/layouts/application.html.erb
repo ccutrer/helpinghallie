@@ -12,26 +12,30 @@
   <div id="Header">
     <a href="/" id="Logo"><span id="LogoFirst">Helping</span><span id="LogoSecond">Hallie</span><span id="LogoTLD">.com</span></a>
     <ul>
-      <li><a href="/story.htm">Hallie's Story</a></li>
+      <li><a href="/story.htm">Hallie's Story
+	    <% if Time.now.utc < Time.at(1338911673) + 1.week %>
+          <span class="update">Updated</span>
+        <% end %>
+        </a></li>
       <!--<li><a href="photos.htm">Photos</a></li>-->
       <li><a href="/donations.htm">Donations</a></li>
       <li><a href="/news.htm">In the News
         <% if News.count(:conditions => ['created_at>=?', Time.now.utc - 1.week]) > 0 %>
           <span class="update">Updated</span>
         <% end %>
-      </a></li>
+        </a></li>
       <br /><br />
       <li><a href="/updates.htm">Updates
         <% if Update.count(:conditions => ['created_at>=?', Time.now.utc - 1.week]) > 0 %>
           <span class="update">Updated</span>
         <% end %>
-      </a></li>
+        </a></li>
       <li><a href="/tshirts.htm">T-Shirts</a></li>
       <li><a href="/events.htm">Events
         <% if Event.events.count(:conditions => ['created_at>=?', Time.now.utc - 1.week]) > 0 %>
           <span class="update">Updated</span>
         <% end %>
-      </a></li>
+        </a></li>
       <li><a href="/contact.htm">Contact</a></li>
     </ul>
     <%= image_tag 'bottomshadow.png', :style => 'position:absolute; left:0px; top:120px; width:800px; height:21px;' %>
