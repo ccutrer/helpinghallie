@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     user
-    @events = klass.all(:conditions => { :type => params[:type] }, :order => 'created_at DESC NULLS LAST, id DESC', :limit => 10)
+    @events = klass.where(type: params[:type]).order('created_at DESC NULLS LAST, id DESC').limit(10)
   end
 
   def show
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = klass.new(params[ActiveModel::Naming.param_key(klass)])
+    @event = klass.new(event_params)
     if params[:commit] == 'Preview'
       return render :action => 'show'
     end
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 
   def update
     @event = klass.find(params[:id])
-    @event.attributes = params[ActiveModel::Naming.param_key(klass)]
+    @event.attributes = event_params
     if params[:commit] == 'Preview'
       return render :action => 'show'
     end
@@ -44,5 +44,11 @@ class EventsController < ApplicationController
 protected
   def klass
     @klass ||= params[:type].classify.constantize
+  end
+
+  def event_params
+    params.require(:type)
+    event_params = params[ActiveModel::Naming.param_key(klass)]
+    event_params.permit(:subject, :author, :body)
   end
 end

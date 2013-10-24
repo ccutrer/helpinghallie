@@ -20,19 +20,19 @@
       <!--<li><a href="photos.htm">Photos</a></li>-->
       <li><a href="/donations.htm">Donations</a></li>
       <li><a href="/news.htm">In the News
-        <% if News.count(:conditions => ['created_at>=?', Time.now.utc - 1.week]) > 0 %>
+        <% if News.where("created_at>=?", Time.now.utc - 1.week).count > 0 %>
           <span class="update">Updated</span>
         <% end %>
         </a></li>
       <br /><br />
       <li><a href="/updates.htm">Updates
-        <% if Update.count(:conditions => ['created_at>=?', Time.now.utc - 1.week]) > 0 %>
+        <% if Update.where("created_at>=?", Time.now.utc - 1.week).count > 0 %>
           <span class="update">Updated</span>
         <% end %>
         </a></li>
       <li><a href="/tshirts.htm">T-Shirts</a></li>
       <li><a href="/events.htm">Events
-        <% if Event.events.count(:conditions => ['created_at>=?', Time.now.utc - 1.week]) > 0 %>
+        <% if Event.events.where("created_at>=?", Time.now.utc - 1.week).count > 0 %>
           <span class="update">Updated</span>
         <% end %>
         </a></li>

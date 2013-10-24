@@ -1,3 +1,3 @@
 class Event < ActiveRecord::Base
-  scope :events, :conditions => { :type => 'Event' }
+  scope :events, -> { where(type: 'Event') }
 end
