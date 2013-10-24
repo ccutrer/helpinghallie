@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.10'
+gem 'rails', '3.2.15'
 
 gem 'json'
 gem 'omniauth-openid'
