@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-ruby "1.9.3"
+ruby "2.0.0"
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 gem 'activerecord-session_store'
 gem 'json'
