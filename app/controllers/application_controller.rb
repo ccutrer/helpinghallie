@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def user
-    @user = session[:user] if %w{cody@cutrer.us neciamunro@hotmail.com}.include?(session[:user])
+    @user ||= session[:user] if %w{cody@cutrer.us neciamunro@hotmail.com}.include?(session[:user])
   end
 
   def require_user

@@ -9,7 +9,7 @@ HelpingHallie::Application.routes.draw do
   get 'tshirts(.:format)', to: 'application#tshirts'
   get 'rss.xml', to: 'events#index', :format => 'rss', :type => 'Update'
 
-  get '/auth/:provider/callback', :to => 'sessions#create'
+  post '/auth/:provider/callback', :to => 'sessions#create'
 
   root :to => 'application#index'
 end
