@@ -18,6 +18,7 @@ class EventsController < ApplicationController
 
   def create
     @event = klass.new(event_params)
+    @event.type = params[:type]
     if params[:commit] == 'Preview'
       return render :action => 'show'
     end
