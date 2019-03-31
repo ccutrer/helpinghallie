@@ -1,5 +1,5 @@
 HelpingHallie::Application.routes.draw do
-  resources :events, :type => 'Event', :type => 'Event'
+  resources :events, :type => 'Event'
   resources :news, :controller => 'events', :type => 'News'
   resources :updates, :controller => 'events', :type => 'Update'
 
