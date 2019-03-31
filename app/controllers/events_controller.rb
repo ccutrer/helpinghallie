@@ -42,7 +42,8 @@ class EventsController < ApplicationController
     redirect_to polymorphic_path(@event.class)
   end
 
-protected
+  protected
+
   def klass
     @klass ||= params[:type].classify.constantize
   end

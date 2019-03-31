@@ -1,3 +1,6 @@
+<% if @user %>
+  <%= link_to "New", { action: :new } %>
+<% end %>
 <ul id="Events">
   <%= render :partial => 'event', :collection => @events %>
 </ul>
