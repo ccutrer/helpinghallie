@@ -1,14 +1,11 @@
 source 'http://rubygems.org'
-ruby "2.1.3"
 
-gem 'rails', '4.1.6'
+ruby "2.6.2"
 
-gem 'activerecord-session_store'
+gem 'rails', '~> 5.2.0'
+
 gem 'json'
 gem 'omniauth-openid'
 gem 'pg'
 gem 'rdiscount'
-gem 'thin'
-
-gem 'rails_12factor', group: :production
-
+gem 'puma'

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :require_user, :except => [:index, :show]
+  before_action :require_user, :except => [:index, :show]
 
   def index
     user
